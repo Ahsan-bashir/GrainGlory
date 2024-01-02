@@ -5,12 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Website</title>
-    <link rel="stylesheet" href="../assets/output.css">
+    <link rel="stylesheet" href="/assets/output.css">
 </head>
 <body>
    <%- include('header');  %>
 
-   <section class="text-gray-600 body-font">
+
+   <body >
+
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-yellow-300 text-lg font-bold flex items-center lg:flex-row md:flex-row sm:flex-col xs:flex-col">
+                <img src="/public/assets/images/logo-01.svg" alt="Logo" class="h-11 mr-2">
+                Grain Glory
+            </a>
+
+            <!-- Navbar Links -->
+            <div class="hidden md:flex space-x-4 items-center lg:space-x-6 md:space-x-4 sm:space-x-2 xs:space-x-1">
+                <a href="#" class="text-yellow-400 font-bold">Home</a>
+                <a href="#" class="text-yellow-400 font-bold">Company Profile</a>
+                <a href="./Forms/products.html" class="text-yellow-400 font-bold cursor-pointer">Products</a>
+                <a href="#" class="text-yellow-400 font-bold">Get in Touch</a>
+                <a href="./Forms/login.html" class="bg-yellow-400 p-3 cursor-pointer text-white w-20 font-bold">Log In</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-toggle" class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu"
+        class="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50 hidden items-center justify-center">
+        <div class="bg-white p-4 rounded">
+            <a href="#" class="block text-gray-800 mb-2">Home</a>
+            <a href="#" class="block text-gray-800 mb-2">Page 1</a>
+            <a href="#" class="block text-gray-800 mb-2">Page 2</a>
+            <a href="#" class="block text-gray-800 mb-2">Page 3</a>
+            <a href="#" class="block text-gray-800 mb-2">Page 4</a>
+        </div>
+    </div>
+
+    <!-- <div class="content-container lg:flex-row md:flex-row sm:flex-col xs:flex-col lg:w-1/2 md:w-full sm:w-full xs:w-full lg:self-end md:self-end sm:self-auto xs:self-auto">
+        <div class="content">
+            <img class="img-lg w-full h-auto lg:w-auto lg:h-250 md:w-auto md:h-250 sm:w-full sm:h-150 xs:w-full xs:h-100 mb-8 lg:mb-0 lg:mr-8"
+                src="../public/assets/images/gg-tag.svg" alt="">
+            <p class="text-white"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa aliquid ad ea quisquam
+                temporibus quo doloremque eius voluptas ipsum, enim facilis fuga autem eveniet necessitatibus iste,
+                sunt doloribus libero cum.</p>
+            <div class="text-center">
+                <a href="./Forms/login.html"
+                    class="bg-gray-400 p-3 cursor-pointer text-white w-20 font-bold">Order Now</a>
+            </div>
+        </div>
+    </div> -->
+    <div class=" w-1/2">
+        <img src="/public/assets/images/gg-tag.svg" alt="">
+        <p class="text-black"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa aliquid ad ea quisquam
+            temporibus quo doloremque eius voluptas ipsum, enim facilis fuga autem eveniet necessitatibus iste,
+            sunt doloribus libero cum.</p>
+        <button><a href="login.html"
+            class="bg-gray-400 p-3 cursor-pointer text-white w-20 font-bold">Order Now</a></button>
+    </div>
+
+
+    <script>
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+
+
+   <!-- <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">Raw Denim Heirloom Man Braid
         <br class="hidden sm:block">Selfies Wayfarers
@@ -70,7 +147,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
    <%- include('footer');  %>
 </body>
