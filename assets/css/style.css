@@ -8,7 +8,7 @@ li a:hover{
     color: yellow !important;
 }
 #home{
-  background-image: url(/assets/images/index/bg-home-01.svg);
+  background-image: url(/assets/images/index/bg-home-01.jpg);
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
