@@ -1,0 +1,38 @@
+.bg-custom{
+    background-color: #5A4F33 !important;
+}
+li a{
+  color: white !important;
+}
+li a:hover{
+    color: yellow !important;
+}
+#home{
+  background-image: url(/assets/images/index/bg-home-01.svg);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.custom-position-p{
+  position:relative;
+  top: -50px;
+}
+.home-page{
+  margin-left: 300px;
+}
+#contact_us{
+    display: flex;
+    padding: 50px;
+    background: #000;
+}
+@media screen and (max-width:700px) {
+    .home-page{
+        margin-left: 0px;
+    }
+    #contact_us{
+        flex-direction: column;
+    }
+    .border-hide{
+        border-right: none;
+    }
+}

@@ -21,9 +21,7 @@ app.set("layout", "index");
 app.use('/assets',express.static('assets'))
 
 //routes
-app.get('/',(req,res)=>{
-    res.render('index',{})
-})
+app.use('/',require('./server/routes/routes'))
 // listen on port 5000
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)
