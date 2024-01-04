@@ -14,8 +14,8 @@ app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 
 // Use the layout middleware
-app.use(expressLayouts);
-app.set("layout", "index");
+// app.use(expressLayouts);
+// app.set("layout", "index");
 
 //static files
 app.use('/assets',express.static('assets'))
