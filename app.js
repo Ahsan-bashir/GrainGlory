@@ -1,9 +1,15 @@
 const express=require('express')
 const path=require('path')
-// const expressLayouts = require('express-ejs-layouts');
 const methodOverride = require('method-override');
+const connectDB=require('./server/config/db')
+
+require('dotenv').config()
+
 const app=express()
 const port = process.env.PORT || 5000
+
+//database connection
+connectDB();
 
 //To pass data through forms
 app.use(express.urlencoded({ extended: true }));

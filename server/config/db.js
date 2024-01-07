@@ -6,8 +6,6 @@ const connectDB=async()=>{
         const conn=await moongose.connect(process.env.MONGODB_URI);
         console.log(`MongoDB connected: ${conn.connection.host}`);
     } catch (error) {
-        
-        
         console.log(error);
     }
 }
