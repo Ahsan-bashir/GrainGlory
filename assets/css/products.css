@@ -1,0 +1,35 @@
+.types {
+    background-color: #fff;
+    padding: 12px;
+  }
+  
+  .types h2 {
+    margin-top: 0;
+  }
+  
+  .types p {
+    margin-bottom: 0;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 4px;
+  }
+  
+  .grid .card {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    font-size: 1.6rem;
+  }
+  
+  .card img {
+    max-width: 100%;
+  }
+  
+  .card p {
+    font-size: 1rem;
+  }

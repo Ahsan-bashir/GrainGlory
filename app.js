@@ -7,11 +7,11 @@ require('dotenv').config()
 
 const app=express()
 const port = process.env.PORT || 5000
-
+const api=process.env.API_URL || '/api/v1'
 //database connection
 connectDB();
 
-//To pass data through forms
+//To pass data through forms + parse links and json data etc
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'))
@@ -27,8 +27,8 @@ app.set('views',path.join(__dirname,'views'))
 //static files
 app.use('/assets',express.static('assets'))
 
-//routes
-app.use('/',require('./server/routes/routes'))
+// root route
+app.use(`/`,require('./server/routes/routes'))
 // listen on port 5000
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)

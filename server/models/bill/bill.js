@@ -8,7 +8,7 @@ const billSchema = new Schema({
     },
     payment_method: {
         type: String,
-        required: true
+        default:'cashOnDlivery'
     },
     price: {
         type: Number,

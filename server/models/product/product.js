@@ -17,15 +17,12 @@ const productSchema = new Schema({
     },
     rich_description: {
         type: String,
-        required: true
     },
     image: {
         type: String,
-        required: true
     },
     images: {
         type: String,
-        required: true
     },
     countInStock: {
         type: Number, // Change the type to Number
@@ -36,12 +33,12 @@ const productSchema = new Schema({
         required: true
     },
     dateCreated: {
-        type: Date, // Change the type to Date
-        required: true
+        type: Date, 
+        default: Date.now
     },
     category: {
         type: String,
-        required: true
+        default: ''
     }
 }); 
 
