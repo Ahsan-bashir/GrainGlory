@@ -1,7 +1,8 @@
-exports.homepage =(req,res)=>{
+exports.homepage =async (req,res)=>{
     try {
-       res.render('index');
-        
+      await req.flash('info','')
+      console.log("In home controller");
+      return res.render('index', { messages: req.flash() });
       } catch (error) {
         // Handle errors, e.g., file not found
         console.error(error);

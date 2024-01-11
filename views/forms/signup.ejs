@@ -12,6 +12,7 @@
 
 <body class="bg-gray-100 ">
     <div class="min-h-screen flex items-center justify-center">
+        
         <!-- Logo at the Top Left -->
         <div class="absolute top-0 left-0  ">
             <img src="/assets/images/index/logo-f.png" alt="Logo" class="h-32">
@@ -23,30 +24,30 @@
                 <img class="h-32" src="/assets/images/index/logo-01.png" alt="">
             </div>
             <!-- Login Form -->
-            <form class="w-96 h-96 flex flex-col ">
+            <form class="w-96 h-96 flex flex-col " action="/user" method="POST">
                 <!-- Fullname Input -->
                 <div class="mb-4">
-                    <label for="fullname" class="block text-lg font-bold text-yellow-400">Full Name :</label>
-                    <input type="text" id="fullname" name="fullname"
-                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500">
+                    <label for="name" class="block text-lg font-bold text-yellow-400">Full Name :</label>
+                    <input type="text" id="name" name="name"
+                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500" required>
                 </div>
                 <!-- Username Input -->
                 <div class="mb-4">
                     <label for="username" class="block text-lg font-bold text-yellow-400">Username :</label>
                     <input type="text" id="username" name="username"
-                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500" required>
                 </div>
                 <!-- Email Input -->
                 <div class="mb-4">
                     <label for="email" class="block  text-lg font-bold text-yellow-400">Email :</label>
                     <input type="email" id="email" name="email"
-                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500" required >
                 </div>
                 <!-- Password Input -->
                 <div class="mb-4">
                     <label for="password" class="block  text-lg font-bold text-yellow-400">Password :</label>
                     <input type="password" id="password" name="password"
-                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-1 border rounded-md focus:outline-none focus:border-blue-500" required>
                 </div>
                 <!-- Submit Button -->
                 <button type="submit"

@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="/assets/output.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="https://kit.fontawesome.com/5d0cd66e4b.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
+ 
 
 <body>
 
@@ -57,7 +60,7 @@
                 US</a>
             </li>
             <li>
-              <a href="/login"
+              <a href="/loginPage"
                 class="block py-2 px-3 font-bold text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">LOG
                 IN</a>
             </li>
@@ -79,7 +82,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <div id="contact_us">
@@ -108,6 +110,28 @@
     </div>
    </footer>
   </div>
+  <script>
+    var message = "<%= messages.info %>";
+    if (message.length > 0) {
+      var title = "Info";
+      var icon = "info";
+  
+      if (message.includes('Successfully')) {
+        title = "Success!";
+        icon = "success";
+      } else if (message.includes('Error') || message.includes('Failed')) {
+        title = "Error!";
+        icon = "error";
+      }
+  
+      swal({
+        title: title,
+        text: message,
+        icon: icon,
+        button: "OK",
+      });
+    }
+  </script>
 </body>
 
 </html>
