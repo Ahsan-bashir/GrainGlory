@@ -1,14 +1,6 @@
 const Product = require("../../models/product/product");
 
-exports.productsPage =(_, res) => {
-    try {
-      res.render('products/products');
-    } catch (error) {
-      // Handle errors, e.g., file not found
-      console.error(error);
-      res.status(500).send("Can't find products.ejs file");
-    }
-  }
+
 
 
 exports.addProduct = async (req, res) => {

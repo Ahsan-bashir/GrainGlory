@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const flash=require('connect-flash')
 const session = require('express-session');
 const connectDB=require('./server/config/db')
+const authJwt=require('./server/helpers/jwt')
 
 require('dotenv').config()
 
@@ -17,6 +18,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'))
+app.use(authJwt());
 
 //Templating Engine
 app.set('view engine','ejs')

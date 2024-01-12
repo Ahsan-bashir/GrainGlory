@@ -11,14 +11,17 @@ const api=process.env.API_URL || '/api/v1'
 routes.get(`/`,homeController.homepage);
 routes.get(`/loginPage`,homeController.loginPage);
 routes.get(`/signupPage`,homeController.signupPage);
+routes.get(`/productsPage`,homeController.productsPage);
 
 // product routes 
-routes.get(`/products`,productController.productsPage);
 routes.post(`/product`,productController.addProduct);
 
 
 // User routes
-routes.post(`/user`,userController.addUser);
-routes.get(`/user/:id`,userController.getUser);
+routes.post(`/user/register`,userController.registerUser);
 routes.post(`/user/login`,userController.loginUser);
+
+routes.get(`/user/:id`,userController.getUser);
+
+
 module.exports=routes;

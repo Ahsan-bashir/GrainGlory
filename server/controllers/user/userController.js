@@ -1,17 +1,30 @@
 const { User } = require("../../models/customer/user");
 const bcrypt =require("bcryptjs") ;
-
+const jwt=require("jsonwebtoken");
 exports.loginUser = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
-    
+    const secret=process.env.secret;
     if (!user) {
         await req.flash('info', 'Invalid Email !!!');
         console.log("Invalid Email");
         return res.render('index', { messages: req.flash() });
     }
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
-        req.flash('info', 'Login Successfully !!!');
+
+        const token=jwt.sign(
+            {
+                userId:user.id,
+                isAdmin:user.isAdmin
+            },
+            secret,
+            {expiresIn:'1w'}
+        )
+
         console.log("Login Successfully");
+        console.log("-------------");
+        console.log(user.id);
+        console.log(token);
+        req.flash('info', 'Login Successfully !!!');
         return res.render('index', { messages: req.flash() });
     } else {
         req.flash('info', 'Invalid Password !!!');
@@ -20,7 +33,7 @@ exports.loginUser = async (req, res) => {
     }
 }
 
-exports.addUser = async (req, res) => {
+exports.registerUser = async (req, res) => {
     try {
         const { name, username, password, email, phone, street, apartment, city, zip, country, isAdmin } = req.body;
 
