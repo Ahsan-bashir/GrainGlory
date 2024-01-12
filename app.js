@@ -18,7 +18,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'))
-app.use(authJwt());
+app.use(authJwt());  
 
 //Templating Engine
 app.set('view engine','ejs')
