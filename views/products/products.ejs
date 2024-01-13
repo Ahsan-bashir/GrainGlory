@@ -1,42 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rice Types</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/products.css">
+  <link rel="stylesheet" href="/assets/output.css">
+  <title>products</title>
+  <style>
+    .header-product-bg {
+      background-image: url("/assets/images/Products/Header-02.png");
+    }
+
+    .basmati-rice-bg {
+      background-image: url("/assets/images/Products/BANASMATI RICE.jpg");
+    }
+
+    .green-overlay {
+      background-color: rgba(48, 78, 16, .8);
+      width: 100%;
+      height: 100%;
+    }
+
+
+    .non-basmati-rice-bg {
+      background-image: url("/assets/images/Products/NON-BANASMATI RICE.jpg");
+    }
+
+    .yellow-overlay {
+      background-color: rgba(166, 123, 29, 0.856);
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer-overlay{
+      background-image: url("/assets/images/Products/Fotter-01.png");
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
+
 <body>
-  <header class="bg-gray-800 text-white py-4 px-6 flex items-center justify-between">
-    <nav>
-      <a href="#" class="text-xl font-bold">Home</a>
-      <a href="#" class="ml-4 text-xl font-bold">Products</a>
-      <a href="#" class="ml-4 text-xl font-bold">Contact</a>
+  <!-- nav start-->
+  <div class="header bg-[#211e1e]">
+
+    <nav class="flex bg-[#5a4f33] px-12  rounded-bl-3xl justify-between items-center ">
+      <div class="logo w-48"><img src="/assets/images/Products/logo-removebg.png" alt="logo"></div>
+      <div>
+        <ul class="text-white flex  ">
+          <li class="hover:text-[#eca728] p-4 font-bold uppercase hover:scale-110 transition-all"><a href="#">Home</a></li>
+          <li class="hover:text-[#eca728] hover:scale-110 p-4 font-bold uppercase
+          transition-all"><a href="#">Company Profile</a></li>
+          <li class="hover:text-[#eca728] hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Product</a></li>
+          <li class="hover:text-[#eca728]  hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Branding & Packaging</a></li>
+          <li class="hover:text-[#eca728]  hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-    <h1 class="text-2xl font-bold">Rice Types</h1>
-  </header>
+    <!-- nav end-->
 
-  <main class="container mx-auto px-4">
-    <section class="types mb-12">
-      <h2 class="text-2xl font-bold mb-4">Multifaceted Options</h2>
-      <p class="mb-4">Rice categories vary in processing methods, influencing flavor, texture, and nutrition. Choice depends on personal preference and dish requirements.</p>
+    <!-- section 0 start-->
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="bg-white rounded-lg shadow-md p-4">
-          <h3 class="text-lg font-bold mb-2">White Rice</h3>
-          <img src="images/white-rice.jpg" alt="White Rice" class="w-full">
-          <p class="mb-4">Considered a versatile staple food, white rice is a base for various dishes.</p>
+    <div class="bg-red-500 header-product-bg bg-cover bg-bottom  py-36 px-32">
+      <h1 class="uppercase text-7xl text-white font-bold">products</h1>
+    </div>
+  </div>
+  <!-- section 0 end-->
+  <!-- ============================================================== -->
+  <!-- section 1 (multifaceted option)        start-->
+  <div class="px-14 py-20  text-center">
+    <h2 class="text-5xl uppercase font-bold text-[#5a5334] mb-4">multifaceted Options</h2>
+    <p class=" w-3/6  mx-auto text-xl mb-12">Rice catagories vary in processing methods,influencing flavor, texture and
+      nutrition. Choice depends on persoonal preference and dish requirements</p>
+    <div class="flex flex-wrap justify-center">
+      <!-- rice card 1 -->
+      <div class=" w-96">
+        <img class="h-96" src="/assets/images/Products/White Rice.png" alt="white-rice">
+        <h3 class="font-bold text-4xl text-[#eba629] mb-6">White Rice</h3>
+        <p class="text-lg text-center">Lorem ipssit amet consectetur adipisicing elit. Aperiam nobis dolorem ratione
+          consectetur similique atque asperiores cumque molest</p>
+      </div>
+      <!-- rice card 2 -->
+      <div class=" w-96 ">
+        <img class="h-96" src="/assets/images/Products/Parboiled Rice.png" alt="white-rice">
+        <h3 class="font-bold text-4xl text-[#eba629] mb-6">Parboiled Rice</h3>
+        <p class="text-lg text-center">Lorem ipssit amet consectetur adipisicing elit. Aperiam nobis dolorem ratione
+          consectetur similique atque asperiores cumque molest</p>
+      </div>
+      <!-- rice card 3 -->
+      <div class=" w-96">
+        <img class="h-96" src="/assets/images/Products/Steam Rice.png" alt="white-rice">
+        <h3 class="font-bold text-4xl text-[#eba629] mb-6">Steam Rice</h3>
+        <p class="text-lg text-center">Lorem ipssit amet consectetur adipisicing elit. Aperiam nobis dolorem ratione
+          consectetur similique atque asperiores cumque molest</p>
+      </div>
+      <!-- rice card 4 -->
+      <div class=" w-96">
+        <img class="h-96" src="/assets/images/Products/Brown Rice.png" alt="white-rice">
+        <h3 class="font-bold text-4xl text-[#eba629] mb-6">Brown Rice</h3>
+        <p class="text-lg text-center">Lorem ipssit amet consectetur adipisicing elit. Aperiam nobis dolorem ratione
+          consectetur similique atque asperiores cumque molest</p>
+      </div>
+    </div>
+  </div>
+  <!-- section 1 (multifaceted option)        end-->
+  <!-- ============================================================== -->
+  <!-- section 2 (pakistani basmati rice)     start-->
+  <div class=" basmati-rice-bg bg-cover text-center">
+    <div class="green-overlay px-16 py-12">
+      <h2 class="text-5xl uppercase font-bold text-white mb-4">pakistani basmati Rice</h2>
+      <div class="flex justify-between flex-wrap">
+        <!-- card 1 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/PK-1121-Benasmati.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">Super Kernel Basmati</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
+        </div>
+        <!-- card 2 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/PK-198-Banasmati.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">Pk-198 Basmati</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
+        </div>
+        <!-- card 3 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/SUPER KERNAL BANAMATI.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">PK-1121 Basmati</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- section 2 (pakistani basmati rice)     end-->
+  <!-- ============================================================== -->
+  <!-- section 3 (pakistani non basmati rice) start-->
+  <div class=" non-basmati-rice-bg bg-cover text-center ">
+    <div class="yellow-overlay px-8 py-12 text-center ">
+      <h2 class="text-5xl uppercase font-bold text-white mb-4">pakistani NON basmati Rice</h2>
+      <div class="flex justify-around flex-wrap">
+        <!-- card 1 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/IRRI-9.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">IRRI-9</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
+        </div>
+        <!-- card 2 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/IRRI-6.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">IRRI-6</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
+        </div>
+        <!-- card 3 -->
+        <div class="w-96 text-white">
+          <img class="w-96 h-96" src="/assets/images/Products/PK-386.png" alt="">
+          <h3 class="font-extrabold text-2xl mb-6 uppercase tracking-widest">PK-386</h3>
+          <p class=" w-72 text-center mx-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatem
+            quam quod, facilis temporibus quis culpa ad ex aperiam atque rem ea alias cum reiciendis quos vitae est
+            soluta magnam nulla officia sed, perferendis odit. Non.</p>
         </div>
 
-        </div>
-    </section>
 
-    <section class="pakistani-rice mb-12">
-      </section>
-
-    <footer class="bg-gray-800 text-white py-4 px-6 text-center">
-      </footer>
-  </main>
+      </div>
+    </div>
+  </div>
+  <!-- section 3 (pakistani non basmati rice) end-->
+  <!-- ============================================================== -->
+  <!-- footer start-->
+  <footer class="bg-[#242424]  text-white py-8 px-12">
+   <div class="flex p-6 items-center justify-center">
+  <!-- box1 -->
+    <div class="w-1/2 flex justify-center">
+      <div class="w-1/6 -mt-8 text-center">
+        <img src="/assets/images/Products/logo-icon.png" alt="footer-logo">
+        <h3><span class="text-[#494f2e] font-semibold text-lg tracking-widest">GRAIN</span><span class="block text-[#eca728] font-bold text-2xl tracking-widest">GLORY</span></h3>
+      </div>
+      <div class="w-4/6 ml-8 text-justify">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta atque, voluptatibus nam sint facere officia magnam consequatur, excepturi nisi non laudantium tenetur aperiam nostrum possimus! Non quasi sapiente qui nulla.</p>
+        <ul class="flex mt-10 gap-x-5 justify-end">
+          <li><a href="#">social-icon 1</a></li>
+          <li><a href="#">social-icon 2</a></li>
+          <li><a href="#">social-icon 3</a></li>
+          <li><a href="#">social-icon 4</a></li>
+        </ul>
+      </div>
+    </div>
+  <!-- box2 -->
+    <div class="w-1/2 border-l-white border-l-4 rounded-l-sm ml-4 px-16">
+      <h3 class="  font-bold text-2xl tracking-widest mb-4">Locations</h3>
+      <ul>
+        <li class="mb-2">
+          <p class="capitalize"><span class="mr-4">icon 1</span> Chak no 266</p>
+        </li>
+        <li  class="mb-2">
+          <p><span class="mr-4">icon 2</span> +92 301 123213123</p>
+        </li>
+        <li  class="mb-2">
+          <p><span class="mr-4">icon 3</span> gainglory@gmail.com</p>
+        </li>
+      </ul>
+    </div>
+   </div>
+  </footer>
+  <!-- footer end-->
 </body>
+
 </html>

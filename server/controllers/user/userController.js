@@ -1,6 +1,7 @@
 const { User } = require("../../models/customer/user");
 const bcrypt =require("bcryptjs") ;
 const jwt=require("jsonwebtoken");
+
 exports.loginUser = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     const secret=process.env.secret;
@@ -9,7 +10,7 @@ exports.loginUser = async (req, res) => {
         console.log("Invalid Email");
         return res.render('index', { messages: req.flash() });
     }
-    if (user && bcrypt.compareSync(req.body.password, user.password)) {
+    if (user && bcrypt.compareSync(req.body.password, user.password) && req.body.isAdmin == false) {
 
         const token=jwt.sign(
             {
