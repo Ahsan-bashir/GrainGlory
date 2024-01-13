@@ -3,7 +3,7 @@ const homeController=require('../controllers/home/homeController');
 const productController=require('../controllers/product/productController');
 const userController=require('../controllers/user/userController');
 const categoryController=require('../controllers/category/categoryController');
-
+const orderController=require('../controllers/order/orderController');
 const routes=express.Router();
 
 const api=process.env.API_URL || '/api/v1'
@@ -37,4 +37,10 @@ routes.post(`/category`,categoryController.addCategory);
 routes.put(`/category/:id`,categoryController.updateCategory);
 routes.delete(`/category/:id`,categoryController.deleteCategory);
 
+// order routes
+routes.get(`/order`,orderController.getOrders);
+routes.get(`/order/:id`,orderController.getOrder);
+routes.post(`/order`,orderController.placeOrder);
+routes.put(`/order/:id`,orderController.updateOrder);
+routes.delete(`/order/:id`,orderController.deleteOrder);
 module.exports=routes;
