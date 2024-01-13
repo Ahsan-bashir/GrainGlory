@@ -20,4 +20,12 @@ const billSchema = new Schema({
     }
 });
 
+billSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+billSchema.set('toJSON', {
+    virtuals: true
+});
+
 exports.Bill = moongoose.model('Bill', billSchema);

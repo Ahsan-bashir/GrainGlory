@@ -9,7 +9,7 @@ const productSchema = new Schema({
     }, 
     price: {
         type: Number,
-        required: true
+        default: 0
     },
     description: {
         type: String,
@@ -17,29 +17,45 @@ const productSchema = new Schema({
     },
     rich_description: {
         type: String,
+        default: ''
     },
     image: {
         type: String,
+        default: ''
     },
-    images: {
+    images: [{
         type: String,
-    },
+    }] ,
     countInStock: {
         type: Number, // Change the type to Number
-        required: true
+        required: true,
+        min: 0, 
+        max: 2000
     },
     isFeatured: {
-        type: Boolean, // Change the type to Boolean
-        required: true
+        type: Boolean, 
+        default: false
+    },
+    numReviews: {
+        type: Number, 
+        default: 0
     },
     dateCreated: {
         type: Date, 
         default: Date.now
     },
     category: {
-        type: String,
-        default: ''
+        type: mongoose.Schema.Types.ObjectId,
+       ref: 'Category',
+        required: true 
     }
 }); 
 
+productSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+
+productSchema.set('toJSON', {
+    virtuals: true
+});
 module.exports = mongoose.model('Product', productSchema);
