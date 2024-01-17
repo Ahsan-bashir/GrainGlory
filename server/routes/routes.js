@@ -21,6 +21,7 @@ routes.get(`/product/get/featured/:count`,productController.getFeaturedProducts)
 routes.get(`/product/get/count`,productController.getProductsCount);
 routes.post(`/product`,productController.addProduct);
 routes.put(`/product/:id`,productController.updateProduct);
+routes.put(`/product/gallery-images/:id`,productController.updateProductGalleryImages);
 routes.delete(`/product/:id`,productController.deleteProduct);
 
 
@@ -40,7 +41,11 @@ routes.delete(`/category/:id`,categoryController.deleteCategory);
 // order routes
 routes.get(`/order`,orderController.getOrders);
 routes.get(`/order/:id`,orderController.getOrder);
+routes.get(`/order/get/userorders/:userid`,orderController.getUserOrders);
 routes.post(`/order`,orderController.placeOrder);
 routes.put(`/order/:id`,orderController.updateOrder);
 routes.delete(`/order/:id`,orderController.deleteOrder);
+// sales routes
+routes.get(`/order/get/totalsales`,orderController.getTotalSales);
+routes.get(`/order/get/count`,orderController.getOrdersCount);
 module.exports=routes;

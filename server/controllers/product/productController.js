@@ -1,6 +1,31 @@
 const Product = require("../../models/product/product");
 const Category = require("../../models/category/category");
 const mongoose = require("mongoose");
+const multer = require('multer');
+
+const FILE_TYPE_MAP = {
+    'image/png': 'png',
+    'image/jpg': 'jpg',
+    'image/jpeg': 'jpeg',
+};
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        const isValid=FILE_TYPE_MAP[file.mimetype];
+        let uploadError=new Error('invalid image type');
+        if(isValid){
+            uploadError=null;
+        }
+        cb(uploadError, '/assets/images/uploads')
+    },
+    filename: function (req, file, cb) {
+        const fileName = file.originalname.split(' ').join('-');
+        const extension=FILE_TYPE_MAP[file.mimetype];
+        cb(null, `${fileName}-${Date.now()}.${extension}`) //Appending extension
+    }
+})
+const uploadOptions = multer({ storage: storage });
+
 
 // this getProducts function is used to get all the products from the database
 // if we specify the category in the query string, then we will get the products of that category only
@@ -27,10 +52,9 @@ exports.getProduct = async (req, res) => {
     res.send(product);
 };
 
-exports.addProduct = async (req, res) => {
+exports.addProduct = uploadOptions.single('image'),async (req, res) => {
     try {
         const { name } = req.body;
-
         // Check if product with the same name already exists
         const existingProduct = await Product.findOne({ name });
         if (existingProduct) {
@@ -38,16 +62,18 @@ exports.addProduct = async (req, res) => {
         }
 
         const category=Category.findById(req.body.category);
-        if(!category){
-            return res.status(400).json({ error: "Invalid category" });
-        }
+        if(!category){ return res.status(400).json({ error: "Invalid category" });}
 
+        const file=req.file;
+        if(!file){ return res.status(400).json({ error: "No image in the request" });}
+        const fileName=req.file.filename;
+        const basePath=`${req.protocol}://${req.get('host')}/assets/images/uploads/`;
         const product = new Product({
             name,
             price: req.body.price,
             description: req.body.description,
             rich_description: req.body.rich_description,
-            image: req.body.image,
+            image: `${basePath}}${fileName}}`,
             images: req.body.images,
             category: req.body.category,
             numReviews: req.body.numReviews,
@@ -100,6 +126,30 @@ exports.updateProduct = async (req, res) => {
         res.status(500).send("Internal server error");
     }
 };
+
+exports.updateProductGalleryImages = uploadOptions.array('images',10),async (req, res) => {
+    if(!mongoose.isValidObjectId(req.params.id)){
+        return res.status(400).send("Invalid Product Id");
+    }
+
+    const files=req.files;
+    let imagesPaths=[];
+    if(files){
+        const basePath=`${req.protocol}://${req.get('host')}/assets/images/uploads/`;
+        files.map(file=>{
+            imagesPaths.push(`${basePath}${file.fileName}`);
+        });
+    }
+
+    const product = await Product.findByIdAndUpdate(req.params.id, {
+        images: imagesPaths
+    }, { new: true });
+
+    if (!product) {
+        return res.status(404).send('the product cannot be updated!');
+    }
+    res.send(product);
+}
 
 exports.deleteProduct = async (req, res) => {
     const deletedProduct=await Product.findByIdAndDelete(req.params.id);

@@ -16,6 +16,7 @@ connectDB();
 
 //To pass data through forms + parse links and json data etc
 app.use(express.urlencoded({ extended: true }));
+// convert to json data 
 app.use(express.json());
 app.use(methodOverride('_method'))
 app.use(authJwt());  
