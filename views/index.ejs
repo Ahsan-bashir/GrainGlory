@@ -33,32 +33,7 @@
     </div>
   </div>
 
-  <div id="contact_us">
-    <div class="flex items-center border-r-2 border-white border-hide">
-      <div>
-        <img src="/assets/images/index/logo-f.svg" alt="" width="200px">
-      </div>
-      <div class="p-4">
-        <p class="text-white">GrainGlory founded in 2011 Mohammad Bashir Ahmed <br> is dedicated to supplying rice all
-          over Pakistan</p>
-        <div>
-          <a href="#" class="text-white"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" class="text-white"><i class="fa-solid fa-envelope-open"></i></a>
-          <a href="#" class="text-white"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-      </div>
-    </div>
-    
-   <footer>
-    <div class="p-4">
-      <h1 class="font-bold text-white">Locations</h1>
-      <p class="text-white"><i class="fa fa-location "></i> Chak 226 KHURRIANWALA, KARIANWALA ROAD FAISALABAD</p>
-      <P class="text-white"><i class="fa-brands fa-whatsapp "></i> +92 301 6048755</P>
-      <P class="text-white"><i class="fa-solid fa-envelope-open "></i>grainglory266@gmail.com</P>
-    </div>
-   </footer>
-  </div>
+ <%- include('./footer.ejs') %>
   <script>
     var message = "<%= messages.info %>";
     if (message.length > 0) {
