@@ -32,7 +32,7 @@
       height: 100%;
     }
 
-    .footer-overlay{
+    .footer-overlay {
       background-image: url("/assets/images/Products/Fotter-01.png");
       width: 100%;
       height: 100%;
@@ -44,24 +44,12 @@
   <!-- nav start-->
   <div class="header bg-[#211e1e]">
 
-    <nav class="flex bg-[#5a4f33] px-12  rounded-bl-3xl justify-between items-center ">
-      <div class="logo w-48"><img src="/assets/images/Products/logo-removebg.png" alt="logo"></div>
-      <div>
-        <ul class="text-white flex  ">
-          <li class="hover:text-[#eca728] p-4 font-bold uppercase hover:scale-110 transition-all"><a href="#">Home</a></li>
-          <li class="hover:text-[#eca728] hover:scale-110 p-4 font-bold uppercase
-          transition-all"><a href="#">Company Profile</a></li>
-          <li class="hover:text-[#eca728] hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Product</a></li>
-          <li class="hover:text-[#eca728]  hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Branding & Packaging</a></li>
-          <li class="hover:text-[#eca728]  hover:scale-110 p-4 font-bold uppercase transition-all"><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+   <%- include('../header') %>
     <!-- nav end-->
 
     <!-- section 0 start-->
 
-    <div class="bg-red-500 header-product-bg bg-cover bg-bottom  py-36 px-32">
+    <div class=" header-product-bg bg-cover bg-bottom  py-36 px-32">
       <h1 class="uppercase text-7xl text-white font-bold">products</h1>
     </div>
   </div>
@@ -176,42 +164,8 @@
   <!-- section 3 (pakistani non basmati rice) end-->
   <!-- ============================================================== -->
   <!-- footer start-->
-  <footer class="bg-[#242424]  text-white py-8 px-12">
-   <div class="flex p-6 items-center justify-center">
-  <!-- box1 -->
-    <div class="w-1/2 flex justify-center">
-      <div class="w-1/6 -mt-8 text-center">
-        <img src="/assets/images/Products/logo-icon.png" alt="footer-logo">
-        <h3><span class="text-[#494f2e] font-semibold text-lg tracking-widest">GRAIN</span><span class="block text-[#eca728] font-bold text-2xl tracking-widest">GLORY</span></h3>
-      </div>
-      <div class="w-4/6 ml-8 text-justify">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta atque, voluptatibus nam sint facere officia magnam consequatur, excepturi nisi non laudantium tenetur aperiam nostrum possimus! Non quasi sapiente qui nulla.</p>
-        <ul class="flex mt-10 gap-x-5 justify-end">
-          <li><a href="#">social-icon 1</a></li>
-          <li><a href="#">social-icon 2</a></li>
-          <li><a href="#">social-icon 3</a></li>
-          <li><a href="#">social-icon 4</a></li>
-        </ul>
-      </div>
-    </div>
-  <!-- box2 -->
-    <div class="w-1/2 border-l-white border-l-4 rounded-l-sm ml-4 px-16">
-      <h3 class="  font-bold text-2xl tracking-widest mb-4">Locations</h3>
-      <ul>
-        <li class="mb-2">
-          <p class="capitalize"><span class="mr-4">icon 1</span> Chak no 266</p>
-        </li>
-        <li  class="mb-2">
-          <p><span class="mr-4">icon 2</span> +92 301 123213123</p>
-        </li>
-        <li  class="mb-2">
-          <p><span class="mr-4">icon 3</span> gainglory@gmail.com</p>
-        </li>
-      </ul>
-    </div>
-   </div>
-  </footer>
-  <!-- footer end-->
+  <%- include('../footer') %>
+    <!-- footer end-->
 </body>
 
 </html>

@@ -13,6 +13,7 @@ routes.get(`/`,homeController.homepage);
 routes.get(`/loginPage`,homeController.loginPage);
 routes.get(`/signupPage`,homeController.signupPage);
 routes.get(`/productsPage`,homeController.productsPage);
+routes.get(`/cprofilePage`,homeController.cprofilePage);
 
 // product routes 
 routes.get(`/product`,productController.getProducts);

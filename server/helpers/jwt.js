@@ -15,7 +15,8 @@ function authJwt() {
             '/signupPage',
             '/productsPage',
             '/user/register',
-            '/user/login'
+            '/user/login',
+            '/cprofilePage'
         ]
     })
 

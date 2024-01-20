@@ -40,6 +40,15 @@ exports.productsPage =(_, res) => {
     res.status(500).send("Can't find products.ejs file");
   }
 }
+exports.cprofilePage =(_, res) => {
+  try {
+    res.render('cprofile/cprofile');
+  } catch (error) {
+    // Handle errors, e.g., file not found
+    console.error(error);
+    res.status(500).send("Can't find Cprofile.ejs file");
+  }
+}
 
 
 
