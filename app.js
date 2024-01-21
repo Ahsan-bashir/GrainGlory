@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // convert to json data 
 app.use(express.json());
 app.use(methodOverride('_method'))
-// app.use(authJwt());  
+app.use(authJwt());  
 
 // Flash Message 
 app.use(flash());
@@ -45,7 +45,6 @@ app.use(
         resave: false,
         saveUninitialized:true,
         cookie: { maxAge: 60 * 60 * 24 * 7 } // 1 week
-
     })
 )
 
