@@ -81,12 +81,12 @@
                                                             </a>
 
 
-                                                            <a href="/edit/<%= customer._id %>" type="button"
+                                                            <a href="/editUserPage/<%= customer._id %>" type="button"
                                                                 class="btn btn-warning btn-small">
                                                                 <i class="bi bi-pencil"></i>
                                                             </a>
 
-                                                            <form action="/edit/<%= customer._id %>?_method=DELETE"
+                                                            <form action="/deleteUser/<%= customer._id %>?_method=DELETE"
                                                                 method="POST" class="position-relative">
                                                                 <button type="submit" class="btn btn-danger btn-small">
                                                                     <i class="bi bi-person-x"></i>

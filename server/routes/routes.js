@@ -54,11 +54,11 @@ routes.get(`/order/get/count`,orderController.getOrdersCount);
 // admin routes  ---------  User -----------
 
 routes.get(`/adminDashboard`,userController.getUsers);
-routes.get(`/addUser`,userController.addUser);
+routes.get(`/addUser`,userController.addUserPage);
 routes.post(`/addUser`,userController.postUser);
-routes.get('/viewUser/:id',userController.viewUser)
-// routes.get(`/editUser/:id`,userController.editUser);
-// routes.put(`/editUser/:id`,userController.updateUser);
-// routes.delete('deleteUser/:id',userController.deleteUser)
+routes.get('/viewUser/:id',userController.viewUser);
+routes.get(`/editUserPage/:id`,userController.editUserPage);
+routes.put(`/editUser/:id`,userController.updateUser);
+routes.delete('/deleteUser/:id',userController.deleteUser)
 
 module.exports=routes;

@@ -33,7 +33,7 @@ exports.loginUser = async (req, res) => {
         return res.render('index', { messages: req.flash() });
     }
 }
-exports.addUser = async (req, res) => {
+exports.addUserPage = async (req, res) => {
 
     try {
         await Customer.insertMany([
@@ -251,6 +251,46 @@ exports.viewUser = async (req, res) => {
     // console.log("err : ", + error);
    }
 }
+exports.editUserPage = async (req, res) => {  
+   try {
+    const user=await User.findById(req.params.id).select("-password");
+    const locals = {
+        title: "View User",
+        description: "GrainGlory"
+    }
+    console.log("--------------------------in view");
+    res.render('admin/customer/editUser', {locals,customer:user})
+   } catch (error) {
+     req.flash('error', 'An error occurred while trying to find the user.');
+     res.render('admin/customer/allUsers', { messages: req.flash() });
+    // console.log("err : ", + error);
+   }
+}
+exports.updateUser = async (req, res) => {
+    try {
+      await User.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        phone: req.body.phone,
+        street: req.body.street,
+        apartment: req.body.apartment,
+        city: req.body.city,
+        zip: req.body.zip,
+        country: req.body.country,
+        isAdmin: req.body.isAdmin,
+        }).where({ _id: req.params.id });
+
+
+        //  connectFlash.info('New Customer Added Successfully.')
+          req.flash('info','Customer Updated Successfully !!!')
+        // await req.flash('info','New Customer Added Successfully')
+        await res.redirect(`/editUserPage/${req.params.id}`);
+    } catch (error) {
+        console.log(error);
+
+    }
+}                                                                                                                                   
 exports.postUser = async (req, res) => {
     const { name, username, password, email, phone, street, apartment, city, zip, country, isAdmin } = req.body;
 
@@ -374,4 +414,15 @@ exports.getUser = async (req, res) => {
     }
 };
 
-
+exports.deleteUser = async (req, res) => {
+try {
+    const deletedUser= await User.findByIdAndDelete(req.params.id).where({ _id: req.params.id });
+    if(!deletedUser){
+        console.log("-----------user not found --------------");
+        return res.status(404).json({success:false,message:'user not found!'});
+    }
+    res.redirect('/adminDashboard');
+} catch (error) {
+    console.log(error);
+}
+}
