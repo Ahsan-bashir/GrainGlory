@@ -51,29 +51,38 @@ exports.getProduct = async (req, res) => {
     }
     res.send(product);
 };
-
-exports.addProduct = uploadOptions.single('image'),async (req, res) => {
+// uploadOptions.single('image').
+exports.addProduct = async (req, res) => {
     try {
         const { name } = req.body;
         // Check if product with the same name already exists
         const existingProduct = await Product.findOne({ name });
         if (existingProduct) {
-            return res.status(400).json({ error: "Product already exists" });
+            await req.flash('info', 'Product Already Exists !!!');
+            console.log("--------------------");
+           return res.redirect('/getProductsPage');
         }
 
-        const category=Category.findById(req.body.category);
-        if(!category){ return res.status(400).json({ error: "Invalid category" });}
+        // const category=Category.findById(req.body.category);
+        // if(!category){
+        //     await req.flash('info', 'Invalid Category !!!');
+        //     console.log("--------------------");
+        //     res.redirect('/addProductPage');   
+        // }
 
-        const file=req.file;
-        if(!file){ return res.status(400).json({ error: "No image in the request" });}
-        const fileName=req.file.filename;
-        const basePath=`${req.protocol}://${req.get('host')}/assets/images/uploads/`;
+        // const file=req.file;
+        // if(!file){
+        //      return res.status(400).json({ error: "No image in the request" });
+        //     }
+        // const fileName=req.file.filename;
+        // const basePath=`${req.protocol}://${req.get('host')}/assets/images/uploads/`;
         const product = new Product({
             name,
             price: req.body.price,
             description: req.body.description,
             rich_description: req.body.rich_description,
-            image: `${basePath}}${fileName}}`,
+            // image: `${basePath}}${fileName}}`,
+            image: req.body.image,
             images: req.body.images,
             category: req.body.category,
             numReviews: req.body.numReviews,
@@ -83,25 +92,51 @@ exports.addProduct = uploadOptions.single('image'),async (req, res) => {
 
         const newProduct = await product.save();
         if (!newProduct) {
-            return res.status(500).json({ error: "Product cannot be created" });
+            await req.flash('info', 'Product is not created !!!');
+            console.log("--------------------");
+            res.redirect('/addProductPage');
         }
-        res.status(200).json({ success: true, product: newProduct });
+        res.redirect('/addProductPage');
+        
     } catch (error) {
         console.error(error);
+        res.redirect('/addProductPage');
+
         res.status(500).send("Internal server error");
     }
 };
 
+
+exports.viewProduct = async (req, res) => {  
+    try {
+     const product=await Product.findById(req.params.id);
+     const locals = {
+         title: "View Product",
+         description: "GrainGlory"
+     }
+     console.log("--------------------------in view");
+     res.render('admin/product/viewProduct', {locals,user: product})
+    } catch (error) {
+      req.flash('error', 'An error occurred while trying to find the product.');
+      res.render('admin/product/viewProduct', { messages: req.flash() });
+     // console.log("err : ", + error);
+    }
+ }
+
 exports.updateProduct = async (req, res) => {
     try {
-        mongoose.isValidObjectId(req.params.id);
-        if (!mongoose.isValidObjectId(req.params.id)) {
-            return res.status(400).send("Invalid Product Id");
-        }
-        const category=await Category.findById(req.body.category);
-        if(!category){
-            return res.status(400).json({ error: "Invalid category" });
-        }
+        console.log("in prodct Update");
+
+        // mongoose.isValidObjectId(req.params.id);
+        // if (!mongoose.isValidObjectId(req.params.id)) {
+        //     req.flash('info','Invalid Id !!!')
+        //     // await req.flash('info','New Customer Added Successfully')
+        //     await res.redirect(`/editUserPage/${req.params.id}`);
+        //  }
+        // const category=await Category.findById(req.body.category);
+        // if(!category){
+        //     return res.status(400).json({ error: "Invalid category" });
+        // }
         // Check if product with the same name already exists
         const product = await Product.findByIdAndUpdate(req.params.id, {      
             name: req.body.name,
@@ -110,18 +145,23 @@ exports.updateProduct = async (req, res) => {
             rich_description: req.body.rich_description,
             image: req.body.image,
             images: req.body.images,
-            category: req.body.category,
+            category: req.body.category ,
             nummReviews: req.body.numReviews,   
             countInStock: req.body.countInStock,
             isFeatured: req.body.isFeatured,
         });
-
         const updatedProduct = await product.save();
+        console.log("After product save");
         if (!updatedProduct) {
-            return res.status(500).json({ error: "Product cannot be updated" });
+            req.flash('info','Customer Cannot be Updated !!!')
+            // await req.flash('info','New Customer Added Successfully')
+            await res.redirect(`/editProductPage/${req.params.id}`);
+         
         }
-        res.status(200).json({ success: true, product: updatedProduct });
-    } catch (error) {
+        req.flash('info','Customer Updated Successfully !!!')
+        // await req.flash('info','New Customer Added Successfully')
+        await res.redirect(`/editProductPage/${req.params.id}`);
+       } catch (error) {
         console.error(error);
         res.status(500).send("Internal server error");
     }
@@ -156,9 +196,10 @@ exports.deleteProduct = async (req, res) => {
     if(!deletedProduct){
         return res.status(404).json({success:false,message:'product not found!'});
     }
-    res.status(200).json({success:true,message:'the product is deleted!'});
+    
+    res.redirect('/getProductsPage');
 };
-
+   
 exports.getProductsCount = async (req, res) => {
     const productCount = await Product.countDocuments((count) => count);
     if (!productCount) {
@@ -176,4 +217,66 @@ exports.getFeaturedProducts = async (req, res) => {
     }
     res.send(products);
 };
+// ----------for Admin------------------------------
 
+exports.addProductPage = async (req, res) => {
+    const locals = {
+        title: "Add New Product",
+        description: "GrainGlory"
+    }
+    res.render('admin/product/addProduct', locals)
+
+};
+
+exports.getProductsPage = async (req, res) => {
+    const messages =    await req.flash('info')
+    const locals = {
+        title: "GrainGlory",
+        description: "Get All Products"
+    }
+
+const perPage=12;
+const page=req.query.page || 1; 
+
+    try {
+        
+        const products = await Product.aggregate([{  $sort:{updatedAt:-1}  }])
+        .skip((perPage*page)-perPage)
+        .limit(perPage)
+        .exec();
+
+        // .skip(perPage*(page-perPage))
+        // .limit(perPage)
+        // .exec();
+        const count=await Product.countDocuments();    
+
+        res.render('admin/product/allProducts',{
+            locals,
+            products: products,
+            current:page,
+            pages:Math.ceil(count/perPage),
+            messages
+        });
+
+    } catch (error) {
+        
+        console.log(error);
+    }
+
+};
+
+exports.editProductPage = async (req, res) => {  
+    try {
+     const product=await Product.findById(req.params.id).select("-password");
+     const locals = {
+         title: "Edit Product",
+         description: "GrainGlory"
+     }
+     console.log("--------------------------in view");
+     res.render('admin/product/editProduct', {locals,customer:product})
+    } catch (error) {
+      req.flash('error',    'An error occurred while trying to find the product.');
+      res.render('admin/product/allProducts', { messages: req.flash() });
+     // console.log("err : ", + error);
+    }
+ }

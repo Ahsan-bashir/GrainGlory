@@ -33,203 +33,9 @@ exports.loginUser = async (req, res) => {
         return res.render('index', { messages: req.flash() });
     }
 }
-exports.addUser = async (req, res) => {
+exports.addUserPage = async (req, res) => {
 
-    try {
-        await Customer.insertMany([
-            {
-                firstName: "Raddy",
-                lastName: "NodeJs",
-                tel: "1-353-218-4881",
-                email: "raddy@outlook.couk",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Aphrodite",
-                lastName: "Parker",
-                tel: "1-857-407-8574",
-                email: "quam@protonmail.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Camden",
-                lastName: "Perce",
-                tel: "(251) 719-5886",
-                email: "aliquam.tincidunt.nunc@icloud.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Emi",
-                lastName: "Hutchinson",
-                tel: "1-878-674-6876",
-                email: "aenean.egestas@aol.org",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Chaim",
-                lastName: "Holland",
-                tel: "1-776-825-8236",
-                email: "a@google.couk",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Harding",
-                lastName: "Cameron",
-                tel: "1-935-750-3637",
-                email: "non.nisi@outlook.edu",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Dane",
-                lastName: "Kelley",
-                tel: "(129) 964-3195",
-                email: "morbi@aol.org",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Emery",
-                lastName: "Thornton",
-                tel: "(565) 248-4784",
-                email: "egestas.blandit.nam@icloud.org",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Tarik",
-                lastName: "Francis",
-                tel: "1-679-436-4746",
-                email: "lacus@outlook.ca",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Rebecca",
-                lastName: "Booth",
-                tel: "1-548-944-3232",
-                email: "sapien@icloud.couk",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Solomon",
-                lastName: "Larson",
-                tel: "(648) 588-4779",
-                email: "accumsan.interdum@icloud.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Tanner",
-                lastName: "Morin",
-                tel: "(189) 577-5612",
-                email: "nec.diam.duis@google.couk",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "September",
-                lastName: "Walton",
-                tel: "1-732-422-2492",
-                email: "sed.sapien.nunc@icloud.com",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Kermit",
-                lastName: "Becker",
-                tel: "1-163-757-8638",
-                email: "id@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Anish",
-                lastName: "Brown",
-                tel: "1-163-757-8638",
-                email: "Anish@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Duncan",
-                lastName: "Woodard",
-                tel: "1-163-757-8638",
-                email: "Duncan@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Izabella",
-                lastName: "Stark",
-                tel: "1-163-757-8638",
-                email: "Izabella@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Dhruv",
-                lastName: "Fields",
-                tel: "1-163-757-8638",
-                email: "Dhruv@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Harriet",
-                lastName: "Gillespie",
-                tel: "1-163-757-8638",
-                email: "Harriet@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Chad",
-                lastName: "Barton",
-                tel: "1-163-757-8638",
-                email: "Chad@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-            {
-                firstName: "Esmee",
-                lastName: "Trujillo",
-                tel: "1-163-757-8638",
-                email: "Esmee@yahoo.net",
-                details: "Demo details text.",
-                createdAt: Date.now(),
-                updatedAt: Date.now()
-            },
-        ]);
-    } catch (error) {
-        console.log("err : ", + error);
-    }
+  
     const locals = {
         title: "Add New User",
         description: "GrainGlory"
@@ -251,6 +57,46 @@ exports.viewUser = async (req, res) => {
     // console.log("err : ", + error);
    }
 }
+exports.editUserPage = async (req, res) => {  
+   try {
+    const user=await User.findById(req.params.id).select("-password");
+    const locals = {
+        title: "View User",
+        description: "GrainGlory"
+    }
+    console.log("-- ------------------------in view");
+    res.render('admin/customer/editUser', {locals,customer:user})
+   } catch (error) {
+     req.flash('error', 'An error occurred while trying to find the user.');
+     res.render('admin/customer/allUsers', { messages: req.flash() });
+    // console.log("err : ", + error);
+   }
+}
+exports.updateUser = async (req, res) => {
+    try {
+      await User.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        phone: req.body.phone,
+        street: req.body.street,
+        apartment: req.body.apartment,
+        city: req.body.city,
+        zip: req.body.zip,
+        country: req.body.country,
+        isAdmin: req.body.isAdmin,
+        }).where({ _id: req.params.id });
+
+
+        //  connectFlash.info('New Customer Added Successfully.')
+          req.flash('info','Customer Updated Successfully !!!')
+        // await req.flash('info','New Customer Added Successfully')
+        await res.redirect(`/editUserPage/${req.params.id}`);
+    } catch (error) {
+        console.log(error);
+
+    }
+}                                                                                                                                   
 exports.postUser = async (req, res) => {
     const { name, username, password, email, phone, street, apartment, city, zip, country, isAdmin } = req.body;
 
@@ -374,4 +220,15 @@ exports.getUser = async (req, res) => {
     }
 };
 
-
+exports.deleteUser = async (req, res) => {
+try {
+    const deletedUser= await User.findByIdAndDelete(req.params.id).where({ _id: req.params.id });
+    if(!deletedUser){
+        console.log("-----------user not found --------------");
+        return res.status(404).json({success:false,message:'user not found!'});
+    }
+    res.redirect('/adminDashboard');
+} catch (error) {
+    console.log(error);
+}
+}

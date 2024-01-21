@@ -8,8 +8,12 @@ function authJwt() {
         isRevoked: isRevoked
     }).unless({
         path: [
-            {url:/\/products(.*)/,methods:['GET','OPTIONS']},
-            { url: /^\/assets\/.*/, methods: ['GET'] },
+            { url: /.*\/product\/.*/i, methods: ['GET', 'OPTIONS'] },
+            {
+                url: /^\/(add|edit|delete|view|getProductsPage)(.*)/i,
+                methods: ['GET', 'POST', 'PUT', 'DELETE']
+            },            
+             { url: /^\/assets\/.*/, methods: ['GET'] },
             '/',
             '/loginPage',
             '/signupPage',
@@ -20,6 +24,8 @@ function authJwt() {
             '/adminDashboard',
             '/addUser',
             '/viewUser/:id',
+            '/viewUser/:id',
+            
         ]
     })
 

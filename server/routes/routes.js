@@ -23,10 +23,7 @@ routes.get(`/product`,productController.getProducts);
 routes.get(`/product/:id`,productController.getProduct);
 routes.get(`/product/get/featured/:count`,productController.getFeaturedProducts);
 routes.get(`/product/get/count`,productController.getProductsCount);
-routes.post(`/product`,productController.addProduct);
-routes.put(`/product/:id`,productController.updateProduct);
 routes.put(`/product/gallery-images/:id`,productController.updateProductGalleryImages);
-routes.delete(`/product/:id`,productController.deleteProduct);
 
 
 // User routes
@@ -57,11 +54,22 @@ routes.get(`/order/get/count`,orderController.getOrdersCount);
 // admin routes  ---------  User -----------
 
 routes.get(`/adminDashboard`,userController.getUsers);
-routes.get(`/addUser`,userController.addUser);
+routes.get(`/addUser`,userController.addUserPage);
 routes.post(`/addUser`,userController.postUser);
-routes.get('/viewUser/:id',userController.viewUser)
-// routes.get(`/editUser/:id`,userController.editUser);
-// routes.put(`/editUser/:id`,userController.updateUser);
-// routes.delete('deleteUser/:id',userController.deleteUser)
+routes.get('/viewUser/:id',userController.viewUser);
+routes.get(`/editUserPage/:id`,userController.editUserPage);
+routes.put(`/editUser/:id`,userController.updateUser);
+routes.delete('/deleteUser/:id',userController.deleteUser);
+
+// admin routes  ---------  User -----------
+
+routes.get(`/getProductsPage`,productController.getProductsPage);
+routes.get(`/addProductPage`,productController.addProductPage);
+routes.post(`/addproduct`,productController.addProduct);
+routes.get('/viewProduct/:id',productController.viewProduct);
+routes.get(`/editProductPage/:id`,productController.editProductPage);
+routes.put(`/editProduct/:id`,productController.updateProduct);
+routes.delete(`/deleteProduct/:id`,productController.deleteProduct);
+
 
 module.exports=routes;
