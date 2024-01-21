@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/output.css">
+    <title>c_profile</title>
+    <style>
+        .header-basmati-bg {
+            background-image: url("/assets/images/SUPER-KERNAL-BANASMATI/Main-01.png");
+            background-color: white;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 400px;
+        }   
+
+        @media (min-width: 768px) {
+            .header-basmati-bg {
+                height: 520px;
+            }
+        }
+
+        .footer-overlay {
+            background-image: url("/assets/images/Products/Fotter-01.png");
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-images {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-images img {
+            width: 50%;
+        }
+
+        .product-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header bg-[#211e1e]">
+        <%- include('../../header') %>
+        <div class="header-basmati-bg bg-cover bg-bottom py-36 px-32">
+            <h1 class="uppercase text-7xl text-white font-bold mr-72">
+                <span class="block text-center">PAKISTANI BASMATI </span>
+                <span class="block  text-center">RICE </span>
+            </h1>
+        </div>
+    </div>
+
+            <div class="flex justify-evenly">
+
+                <div class="text-black mr-8">
+                    <div class="w-96 h-96">
+                        <img src="/assets/images/SUPER-KERNAL-BANASMATI/PNG.png" alt="">
+                    </div>
+                </div>
+                <div class="w-1/3 ml-24">
+                    <h2 class="text-3xl text-right bg-[#463d27]  uppercase font-bold text-white mb-6"> Super Kernel
+                        Basmati Rice </h2>
+                    <p class="h-1 w-full text-xl text-black text-justify">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Quia voluptatem quam quod, facilis temporibus quis culpa ad
+                        ex aperiam atque rem ea alias cum reiciendis quos vitae est
+                        soluta magnam nulla officia sed, perferendis odit. Non.lorem40 Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipisicing elit. Ratione expedita odio sit perspiciatis corrupti molestias distinctio quas
+                        possimus nisi,
+                        veritatis quia ex minima deleniti quam natus neque inventore, nesciunt culpa voluptate nihil vitae
+                        cum
+                        atque! Illo ullam obcaecati impedit deleniti! </p>
+                </div>
+            </div>
+        
+    
+
+    <div class="flex justify-between">
+        <div class="text-black ml-28">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-semibold mb-4 ml-5 text-[#463d27]">Characteristics</h2>
+                <table class="min-w-full bg-white border border-gray-300 ml-4 product-table">
+
+                    <tbody>
+                        <tr class="bg-gray-200">
+                            <!-- Gray background for 1st row -->
+                            <td class="py-2 px-4 border-b">Length</td>
+                            <td class="py-2 px-4 border-b">7.2mm</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Width</td>
+                            <td class="py-2 px-4 border-b">1.62mm</td>
+                        </tr>
+                        <tr class="bg-gray-200">
+                            <!-- Gray background for 3rd row -->
+                            <td class="py-2 px-4 border-b">Thickness</td>
+                            <td class="py-2 px-4 border-b">1.51mm</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">Classification</td>
+                            <td class="py-2 px-4 border-b">Extra long Grain</td>
+                        </tr>
+                        <tr class="bg-gray-200">
+                            <!-- Gray background for 5th row -->
+                            <td class="py-2 px-4">Aroma</td>
+                            <td class="py-2 px-4">Present</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+ 
+        <div class="w-1/3 mr-8 lg:mr-20">
+            <div class="product-images">
+                <img class="w-full" src="/assets/images/SUPER-KERNAL-BANASMATI/SIZE.png" alt="">
+                <img class="w-full" src="/assets/images/SUPER-KERNAL-BANASMATI/RICE-01.png" alt="">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="flex justify-end">
+
+        <div class="space-x-4  mr-40">
+            <button type=" buy now"
+                class="w-auto bg-yellow-400 text-white py-2 mb-3 px-4  hover:bg-black focus:outline-none font-bold">
+                BUY NOW
+            </button>
+
+            <button type=" add to cart"
+                class="w-auto bg-black text-white py-2 mb-3 px-4 hover:bg-yellow-500 focus:outline-none font-bold"
+                style="margin-left: 50px;">
+                ADD TO CART
+            </button>
+        </div>
+    </div>
+
+    <%- include('../../footer') %>
+</body>
+
+</html>

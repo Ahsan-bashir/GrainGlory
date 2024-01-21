@@ -49,6 +49,33 @@ exports.cprofilePage =(_, res) => {
     res.status(500).send("Can't find Cprofile.ejs file");
   }
 }
+exports.bPackagingPage =(_, res) => {
+  try {
+    res.render('branding_packaging/packaging');
+  } catch (error) {
+    // Handle errors, e.g., file not found
+    console.error(error);
+    res.status(500).send("Can't find brandingpackaging.ejs file");
+  }
+}
+exports.skBasmatiPage =(_, res) => {
+  try {
+    res.render('products/categories/skBasmati');
+  } catch (error) {
+    // Handle errors, e.g., file not found
+    console.error(error);
+    res.status(500).send("Can't find skBasmatiPage.ejs file");
+  }
+}
+exports.contactPage =(_, res) => {
+  try {
+    res.render('contact/contact');
+  } catch (error) {
+    // Handle errors, e.g., file not found
+    console.error(error);
+    res.status(500).send("Can't find contact.ejs file");
+  }
+}
 
 
 
