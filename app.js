@@ -5,7 +5,7 @@ const flash=require('connect-flash')
 const session = require('express-session');
 const connectDB=require('./server/config/db')
 const authJwt=require('./server/helpers/jwt')
-
+// const expressLayout=require('express-ejs-layouts')
 require('dotenv').config()
 
 const app=express()
@@ -19,11 +19,17 @@ app.use(express.urlencoded({ extended: true }));
 // convert to json data 
 app.use(express.json());
 app.use(methodOverride('_method'))
-app.use(authJwt());  
+// app.use(authJwt());  
+
+// Flash Message 
+app.use(flash());
 
 //Templating Engine
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
+
+// app.use(expressLayout);
+// app.set('layout', './views/admin/customer/layouts/main');
 
 // Use the layout middleware
 // app.use(expressLayouts);
@@ -43,11 +49,15 @@ app.use(
     })
 )
 
-// Flash Message 
-app.use(flash());
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+      res.status(401).send('Invalid token...');
+    }
+  });
 
 // root route
-app.use(`/`,require('./server/routes/routes'))
+app.use(`/`,require('./server/routes/routes'));
+
 // listen on port 5000
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)

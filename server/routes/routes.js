@@ -49,4 +49,16 @@ routes.delete(`/order/:id`,orderController.deleteOrder);
 // sales routes
 routes.get(`/order/get/totalsales`,orderController.getTotalSales);
 routes.get(`/order/get/count`,orderController.getOrdersCount);
+
+
+// admin routes  ---------  User -----------
+
+routes.get(`/adminDashboard`,userController.getUsers);
+routes.get(`/addUser`,userController.addUser);
+routes.post(`/addUser`,userController.postUser);
+routes.get('/viewUser/:id',userController.viewUser)
+// routes.get(`/editUser/:id`,userController.editUser);
+// routes.put(`/editUser/:id`,userController.updateUser);
+// routes.delete('deleteUser/:id',userController.deleteUser)
+
 module.exports=routes;
