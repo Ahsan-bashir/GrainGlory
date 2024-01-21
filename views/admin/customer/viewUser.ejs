@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.title %>
+    </title>
+    <meta name="description" content="<%= locals.description %>">
+    <!-- <link rel="stylesheet" href="/assets/output.css"> -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <%- include('../Partials/header.ejs') %>
+        <div class="container-fluid">
+            <div class="row">
+                <%- include('../Partials/sidebar.ejs') %>
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                       <!-- ----------------------------------------------------------- -->
+                       <!-- --------------------------------------------------------------- -->
+                       
+
+<div class="d-flex justify-content-between flex-wrap nowrap flex-md align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><%= user.name %></h1>
+    <div class="btn-toolbar mb-2 mb-md 0">
+        <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+        </div>
+    </div>
+</div>
+
+<!-- Table to show sepecific User credentials -->
+
+<div class="col py-3">
+
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"> <a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active"> <%= user.name %></li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+            <b>Last Updaed : <%= new Date(user.updatedAt).toUTCString() %></b>
+            <b>User Id : <%= user.id %> </b>
+        </div>
+    </div>
+
+</div>
+
+<ul class="list-group">
+    <!-- name -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Name :</b></div>
+            <div class="col" ><%= user.name %> <%= user.username %></div>
+        </div>
+    </li>
+    <!-- tel -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Tel :</b></div>
+            <div class="col" > <%= user.phone %></div>
+        </div>
+    </li>
+    <!-- email -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Email :</b></div>
+            <div class="col" > <%= user.email %></div>
+        </div>
+    </li>
+    <!-- details -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Street :</b></div>
+            <div class="col" > <%= user.street %></div>
+        </div>
+    </li>
+    <!-- date created -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"><b>Country:</b></div>
+            <div class="col" > <%= user.country %></div>
+        </div>
+    </li>
+    <!-- date modified -->
+  
+</ul> 
+                       <!-- --------------------------------------------------------------- -->
+                            <!-- --------------------------------------------------------------- -->
+                    </main>
+            </div>
+            
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>   
+</body>
+
+</html>
+
+
+
+
