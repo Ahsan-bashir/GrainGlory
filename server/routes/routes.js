@@ -14,6 +14,9 @@ routes.get(`/loginPage`,homeController.loginPage);
 routes.get(`/signupPage`,homeController.signupPage);
 routes.get(`/productsPage`,homeController.productsPage);
 routes.get(`/cprofilePage`,homeController.cprofilePage);
+routes.get(`/bPackagingPage`,homeController.bPackagingPage);
+routes.get(`/contact`,homeController.contactPage);
+routes.get(`/skBasmatiPage`,homeController.skBasmatiPage);
 
 // product routes 
 routes.get(`/product`,productController.getProducts);

@@ -12,7 +12,7 @@ const app=express()
 const port = process.env.PORT || 5000
 const api=process.env.API_URL || '/api/v1'
 //database connection
-connectDB();
+// connectDB();
 
 //To pass data through forms + parse links and json data etc
 app.use(express.urlencoded({ extended: true }));
