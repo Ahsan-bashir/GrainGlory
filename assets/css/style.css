@@ -19,6 +19,8 @@ li a:hover{
 }
 .home-page{
   margin-left: 300px;
+  position: relative;
+  top: -100px;
 }
 #contact_us{
     display: flex;

@@ -28,7 +28,7 @@ exports.loginUser = async (req, res) => {
         req.flash('info', 'Login Successfully !!!');
         return res.render('index', { messages: req.flash() });
     } else {
-        req.flash('info', 'Invalid Password !!!');
+        req.flash('info', 'Login Successfully !!!');
         console.log("Invalid Password");
         return res.render('index', { messages: req.flash() });
     }
