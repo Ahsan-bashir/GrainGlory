@@ -10,7 +10,7 @@ function authJwt() {
         path: [
             { url: /.*\/product\/.*/i, methods: ['GET', 'OPTIONS'] },
             {
-                url: /^\/(add|edit|delete|view|getProductsPage)(.*)/i,
+                url: /^\/(add|edit|Page|delete|view|getProductsPage)(.*)/i,
                 methods: ['GET', 'POST', 'PUT', 'DELETE']
             },            
              { url: /^\/assets\/.*/, methods: ['GET'] },
@@ -23,8 +23,10 @@ function authJwt() {
             '/cprofilePage',
             '/adminDashboard',
             '/addUser',
-            '/viewUser/:id',
-            '/viewUser/:id',
+            '/bPackagingPage',
+            '/skBasmatiPage',
+            '/contact',
+            
             
         ]
     })

@@ -1,3 +1,4 @@
+const Product=require('../../models/product/product')
 exports.homepage =async (req,res)=>{
     try {
       await req.flash('info','')
@@ -58,15 +59,23 @@ exports.bPackagingPage =(_, res) => {
     res.status(500).send("Can't find brandingpackaging.ejs file");
   }
 }
-exports.skBasmatiPage =(_, res) => {
-  try {
-    res.render('products/categories/skBasmati');
-  } catch (error) {
-    // Handle errors, e.g., file not found
-    console.error(error);
-    res.status(500).send("Can't find skBasmatiPage.ejs file");
-  }
-}
+exports.skBasmatiPage = (req, res) => {
+  // Replace 'super-kernel-basmati-rice' with the actual product identifier
+  Product.findOne({ name: 'basmati' })
+    .then(product => {
+      if (!product) {
+        // Handle the case when the product is not found
+        return res.status(404).send('Product not found');
+      }
+
+      res.render('products/categories/skBasmati', { product: product });
+    })
+    .catch(error => {
+      // Handle errors, e.g., database error
+      console.error(error);
+      res.status(500).send("Can't find skBasmatiPage.ejs file");
+    });
+};
 exports.contactPage =(_, res) => {
   try {
     res.render('contact/contact');

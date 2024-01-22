@@ -4,6 +4,7 @@ const productController=require('../controllers/product/productController');
 const userController=require('../controllers/user/userController');
 const categoryController=require('../controllers/category/categoryController');
 const orderController=require('../controllers/order/orderController');
+const cartController=require('../controllers/cart/cartController');
 const routes=express.Router();
 
 const api=process.env.API_URL || '/api/v1'
@@ -71,5 +72,10 @@ routes.get(`/editProductPage/:id`,productController.editProductPage);
 routes.put(`/editProduct/:id`,productController.updateProduct);
 routes.delete(`/deleteProduct/:id`,productController.deleteProduct);
 
+//     cart routes----------------------------------------------------------------
+
+routes.post(`/add-to-cart`,cartController.addToCart);
+routes.get(`/view-cart`,cartController.viewCart);
+routes.get(`/postCartPage`,cartController.postCartPage);
 
 module.exports=routes;
